@@ -24,12 +24,6 @@
   name: dsh-redteam-mode/ui
   disabled: true
 
-- id: system-prompt
-  config:
-    includeHarnessIdentity: false
-    personaPrefix: ""
-    personaSuffix: ""
-
 # 本体 insert 写在用户层 profile/cordis.patch.yml（postinstall / 演练台自愈补）。
 # 这里只改已入队条目的 inject/config。再 insert 一次会 already queued（#152 / #154 / #159）。
 - id: dsh-purge

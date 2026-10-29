@@ -6,6 +6,34 @@
 
 <p align="center"><strong>Version 1.1.81</strong></p>
 
+> [!NOTE]
+> ### ⚠️ Fork Notice & Disclaimer
+> 
+> This repository is a **personal fork** for study and local lab drills, based on upstream [YuJunZhiXue/dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) (v1.1.82). Thanks to the original author for the open-source project.
+> 
+> **Disclaimer**:
+> - Strictly for authorized local lab environments, CTFs, and educational research. Never use for unauthorized attacks, illegal operations, or resale.
+> - The user assumes full responsibility for any misuse, system damage, or legal issues. The author of this fork assumes **no liability**.
+> 
+> ---
+> 
+> ### 🛠️ Modifications (Pure Headless & Standard Mode Parity)
+> 
+> 1. **Zero Frontend Clutter (No Floating Windows)**:
+>    Emptied `client.js` injection. Removed all floating docks, launchers, popups, and extra chat bar buttons. Keeps DSH interface 100% native.
+> 2. **Single Entry Point & Zero Impact on Normal Sessions**:
+>    Only triggered when explicitly selecting "Redteam Mode" in the top-right model menu. For Standard or PTC modes, this plugin stays completely dormant without altering official system prompts or personas.
+> 3. **Fixed `{{cwd}}` Runtime Crash**:
+>    Removed the undefined `{{cwd}}` template variable in global configs, fixing the "execution failed" crash loop.
+> 4. **Fixed "Redteam Mode (Failed to load)"**:
+>    Removed the deprecated `toolFilter` entry from agent presets to restore compatibility with newer DSH versions.
+> 5. **Full Capability Parity with Standard Mode**:
+>    - **Direct Execution**: Removed the "commander-only" roleplay limitation; model can directly write code, run commands, and perform reverse engineering.
+>    - **No Token Choke or Gate Censorship**: Removed `anchor-gate`, lifting the 8192 token limit and CoT censorship for uninterrupted long script generation.
+>    - **Restored Official Tools**: Re-added missing tools present in Standard mode (`time-context`, `tool-schedule`, `present`).
+>    - **Restored Skills & Subagent Depth**: Re-enabled workspace skill discovery (`includeDefaultRoots: true`) and subagent recursion.
+
+
 <p align="center">
   <em>DeepSeek Harness jailbreak: every model, swap prompts per model. Default prompt for 小码酱. Please star ⭐ If you build on this, see Attribution required.</em>
 </p>
