@@ -4,11 +4,12 @@ import { fileURLToPath } from "node:url";
 import { sealSlot } from "../lib/table-key.js";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const src = path.join(root, "lib", "default-prompt-inject.md");
+const candidates = ["default-prompt-inject.md", "default-prompt-inject.zh.md"];
+const src = candidates.map((name) => path.join(root, "lib", name)).find((p) => fs.existsSync(p));
 const dest = path.join(root, "lib", "asset-table.js");
 
-if (!fs.existsSync(src)) {
-  throw new Error(`missing local source: ${src}`);
+if (!src) {
+  throw new Error(`missing local source: lib/default-prompt-inject.md or lib/default-prompt-inject.zh.md`);
 }
 
 const text = fs.readFileSync(src, "utf8");
